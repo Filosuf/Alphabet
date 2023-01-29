@@ -19,9 +19,7 @@ final class ViewController: UIViewController {
 //        layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemGray6
-        collectionView.allowsMultipleSelection = false 
-//        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.allowsMultipleSelection = false
         collectionView.register(LetterCollectionViewCell.self, forCellWithReuseIdentifier: LetterCollectionViewCell.identifier)
         collectionView.register(SupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.register(SupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "footer")
@@ -37,8 +35,7 @@ final class ViewController: UIViewController {
     }
     // MARK: - Methods
         private func layout() {
-
-//            indicatorView.translatesAutoresizingMaskIntoConstraints = false
+            
             [LetterCollectionView].forEach { view.addSubview($0) }
 
             NSLayoutConstraint.activate([
@@ -47,7 +44,7 @@ final class ViewController: UIViewController {
                 LetterCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 LetterCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-        } 
+        }
 
     private func makeBold(indexPath: IndexPath) {
             let cell = LetterCollectionView.cellForItem(at: indexPath) as? LetterCollectionViewCell
@@ -113,21 +110,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
                                                     withHorizontalFittingPriority: .required,
                                                     verticalFittingPriority: .fittingSizeLevel)
     }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 88, height: 36)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        sideInset
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        sideInset
-//    }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        UIEdgeInsets(top: sideInset, left: sideInset, bottom: sideInset, right: sideInset)
-//    }
 
 }
 // MARK: - UICollectionViewDelegate
